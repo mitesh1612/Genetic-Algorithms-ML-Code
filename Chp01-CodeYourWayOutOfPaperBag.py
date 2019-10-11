@@ -112,6 +112,16 @@ def drawSpiralsUntilEscaped():
 		storePositionData(L, turt)
 	return L
 
+def drawRandomSpirangles():
+	'''
+	Store data for drawing various random spirangles
+	'''
+	L = []
+	for i in range(10):
+		L.extend(drawSpiralsUntilEscaped())
+	with open("data_rand", "wb") as f:
+		pickle.dump(L, f)
+
 if __name__ == '__main__':
 	# Set the window size : set it something larger than paper bag otherwise wont be able to see bag
 	t.setworldcoordinates(-70., -70., 70., 70.)
@@ -123,7 +133,10 @@ if __name__ == '__main__':
 	# To Draw Triangles
 	# drawTriangles(10)
 	# To Draw Spirangles
-	drawSpiralsUntilEscaped()
+	# drawSpiralsUntilEscaped()
+
+	# TODO : Can add argparse library to select the type of escape and their respective parameter
+	
 	# To keep the turtle window open
 	t.mainloop()
 
